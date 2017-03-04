@@ -1,0 +1,26 @@
+Lane Finding Pipeline
+
+The output video is an annotated version of the input video.
+Well Done for creating the pipeline that allows you to train and test the algorithm.
+In a rough sense, the left and right lane lines are accurately annotated throughout almost all of the video. Annotations can be segmented or solid lines
+
+For some figures, the lines are not centered around the lane lines. Examine the code it seems that the parameter setting for the "HoughLinesP" function, "threshold", "min_line_len", "max_line_gap" are too low, then what would be considered optimal.
+
+Please examine the parameters by modifying them separately. That will allow you to identify how each parameter affects the lane line. For example,
+
+'max_line_gap' defined the maximum distance between segments that will be connected to a single line.
+'min_line_len' defined the minimum length of a line that will be created.
+Increasing these parameters will create smoother and longer lines
+
+"threshold" defined the minimum number of intersections in a given grid cell that are required to choose a line.
+Increasing this parameter, the filter will choose longer lines and ignore short lines.
+http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_houghlines/py_houghlines.html
+
+Examp_0.jpg
+
+You can also make the line shorter so it end on the horizon or below the horizon.
+Visually, the left and right lane lines are accurately annotated by solid lines throughout most of the video.
+Reflection
+
+Reflection describes the current pipeline, identifies its potential shortcomings and suggests possible improvements. There is no minimum length. Writing in English is preferred but you may use any language.
+You are correct the algorithm is not perfect and you identify some important but common occasion where the algorithm will fail. Since the algorithm is "trained" on a very specific road and light conditions when these conditions change we can expect that the algorithm performance will deteriorate.
